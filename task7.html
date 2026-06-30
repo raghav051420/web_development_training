@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+              background: linear-gradient(181deg, #00FFAA 0%, #00BCD4 55%, #8382EE 100%);
+              background-attachment: fixed;
+        }
+        .container{
+            width: 800px;
+            min-height: 300px;
+            box-shadow: 2px 2px 3px black;
+            margin:60px auto 0;
+              display: flex;
+              flex-wrap: wrap;
+                background-color: white;
+                border-radius: 15px 15px 15px 15px ;
+        }
+        .container input[type="text"]{
+            width:300px;
+            height: 40px;
+            margin: 30px;
+            text-align: center;
+            color:black;
+         
+            
+           
+        }
+        
+        input[type="text"]:hover{
+            background: rgb(153, 170, 201);
+            
+             font-size: 25px;
+             text-align: center;
+             border-radius: 10px 10px 10px 10px;
+             
+            
+        }
+        .container input[type="button"]{
+             width:300px;
+            height: 40px;
+            margin: 30px;
+            margin-bottom: 100px;
+            border-radius: 20px 20px 20px 20px;
+        } 
+        .container input[type="button"]:hover{
+             background-color: #1E4374;
+            color: white;
+        }
+        h1{
+            padding-bottom: 100px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .result{
+            width: 600px;
+            height: 150px;
+            border: 2px solid black ;
+            margin:60px auto 0;
+               background-color: white;
+             border-radius: 15px 15px 15px 15px ;
+             box-shadow: 2px 2px 3px black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+      <p>
+    
+    <input type="text" name="" id="t1" placeholder="HINDI MARKS" >
+   </p>
+   <p>
+    
+    <input type="text" name="" id="t2" placeholder="ENGLISH MARKS" >
+   </p>
+   <p>
+    <input type="text" name="" id="t3" placeholder="MATHS MARKS" >
+   </p>
+   <p>
+    <input type="text" name="" id="t4" placeholder="COMPUTER MARKS" >
+   </p>
+   <p>
+    
+    <input type="text" name="" id="t5" placeholder="SCIENCE MARKS" >
+   </p> 
+   <p>
+    <input type="button" value="Submit" name="" id="t6" onclick="calc()">
+   </p>
+   
+    </div>
+    <div class="result">
+        <h1 id="t7"></h1>
+        <h1 id="t8"></h1>
+    </div>
+   
+</body>
+<script>
+    function calc(){
+        var hindi=parseInt(document.getElementById("t1").value);
+        var english=parseInt(document.getElementById("t2").value);
+        var maths=parseInt(document.getElementById("t3").value);
+        var computer=parseInt(document.getElementById("t4").value);
+        var science=parseInt(document.getElementById("t5").value);
+        var pass=0;
+        var fail=0;
+        var subjects="";
+        var Total=hindi+english+maths+computer+science;
+        var Percentage=(Total*100)/500;
+        if(hindi>40){
+            pass++;
+        }
+        else{
+            fail++;
+            subjects+='HINDI ';
+        }
+         if(english>40){
+            pass++;
+        }
+        else{
+            fail++;
+            subjects+='ENGLISH ';
+        }
+         if(maths>40){
+            pass++;
+        }
+        else{
+            fail++;
+            subjects+='MATHS ';
+        }
+         if(computer>40){
+            pass++;
+        }
+        else{
+            fail++;
+            subjects+='COMPUTER ';
+        }
+         if(science>40){
+            pass++;
+        }
+        else{
+            fail++;
+            subjects+='SCIENCE ';
+        }
+        
+        if(fail==1){
+            document.getElementById("t7").innerHTML=`Reappear in ${subjects}`;
+             
+        }
+        else if(fail==0){
+           document.getElementById("t7").innerHTML="Total Marks="+Total+" Percentage="+Percentage;
+        }
+        else{
+           document.getElementById("t7").innerHTML="Fail"; 
+        }
+        
+        
+    }
+</script>
+</html>

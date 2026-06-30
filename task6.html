@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+             background: linear-gradient(90deg, rgba(255, 255, 0, 1) 0%, rgba(0, 188, 212, 1) 60%, rgba(238, 130, 238, 1) 100%);
+        }
+        .container{
+            width: 500px;
+            height: 550px;
+            margin: 20px auto;
+            padding: 10pxpx;
+            border-radius: 20px 20px 20px 20px;
+            background-color: white;
+            box-shadow: 2px 2px 2px black;
+        }
+        input {
+            height: 30px;
+            width: 230px;
+            margin: 8px;
+            text-align: center;
+        }
+        input[type="text"]:hover{
+            background-color: rgb(37, 16, 121);
+            color: white;
+            text-align: center;
+        }
+        h1{
+            float:right;
+            margin-top: 140px;
+            margin-right: 50px;
+            text-align: center;
+            padding-top: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>stock <br> calculator</h1>
+        <p>
+    <input type="text" id="t1" value="" placeholder="enter purchase qty" onkeyup="calc()">
+    <input type="text" id="t2" value="" placeholder="enter purchase price" onkeyup="calc()">
+    <input type="text" id="t3" value="" placeholder="Total purchase" readonly>
+</p>
+<p>
+     <input type="text" id="t4" value="" placeholder="Enter Sales Qty" onkeyup="calc()">
+    <input type="text" id="t5" value="" placeholder="Enter Sales Price" onkeyup="calc()">
+    <input type="text" id="t6" value="" placeholder="Total Sales" readonly>
+</p>
+<p>
+     <input type="text" id="t7" value="" placeholder="Stocks Left" readonly>
+    <input type="text" id="t8" value="" placeholder="value of stocks" readonly>
+    
+</p>
+<p>
+       <input type="text" id="t9" value="" placeholder="profit" readonly>
+    <input type="text" id="t10" value="" placeholder="profit percentage" readonly>
+    
+</p>
+<p>
+    <input type="button" value="submit" onclick="calc()">
+</p>
+    </div>
+    
+    
+</body>
+<script>
+    function calc(){
+      var pq=parseInt(document.getElementById("t1").value);
+      var pp=parseInt(document.getElementById("t2").value);
+      var tp=pq*pp;
+     
+      var sq=parseInt(document.getElementById("t4").value);
+      var sp=parseInt(document.getElementById("t5").value);
+      var ts=sq*sp;
+      var sl=pq-sq;
+        var vos=pp*sq;
+       var profit=ts-vos;
+       var profitper=profit/100;
+       
+       if(isNaN(pq)){
+        pq=tp=ts=sl=vos=profit=profitper=0;
+       }
+       if(isNaN(pp)){
+        pp=tp=ts=sl=vos=profit=profitper=0;
+       }
+       if(isNaN(sq)){
+        sq=tp=ts=sl=vos=profit=profitper=0;
+       }
+       if(isNaN(sp)){
+        sp=tp=ts=sl=vos=profit=profitper=0;
+       }
+        document.getElementById("t3").value=tp;
+      document.getElementById("t6").value=ts;
+      
+      document.getElementById("t7").value=sl;
+    
+      document.getElementById("t8").value=vos;
+     
+      document.getElementById("t9").value=profit;
+     
+      document.getElementById("t10").value=profitper;
+    }
+</script>
+</html>
